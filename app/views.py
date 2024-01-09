@@ -5,18 +5,12 @@ Definition of views.
 from datetime import datetime
 from django.shortcuts import render
 from django.http import HttpRequest
+from .models import Site  # Importez le modèle Site depuis votre application
 
-def home(request):
-    """Renders the home page."""
-    assert isinstance(request, HttpRequest)
-    return render(
-        request,
-        'app/index.html',
-        {
-            'title':'Home Page',
-            'year':datetime.now().year,
-        }
-    )
+def site_liste(request):
+    sites = Site.objects.all()  # Récupérer tous les objets Site depuis la base de données
+    return render(request, 'app/index.html', {'title': 'Liste des Sites','sites': sites,})
+
 
 def contact(request):
     """Renders the contact page."""
