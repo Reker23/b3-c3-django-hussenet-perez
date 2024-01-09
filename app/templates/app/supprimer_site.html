@@ -1,0 +1,21 @@
+{% extends "app/login.html" %}
+
+{% block content %}
+    <h2>Supprimer "{{ site.nom }}"</h2>
+    <p>Êtes-vous sûr de vouloir supprimer le site "{{ site.nom }}" ?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirmer la suppression">
+    </form>
+{% endblock %}
+
+
+<!-- Liste des sites -->
+<ul>
+    {% for site in sites %}
+        <li>
+            {{ site.nom }}
+            <a href="{% url 'supprimer_site' site.id %}">Supprimer</a>
+        </li>
+    {% endfor %}
+</ul>

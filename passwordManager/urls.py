@@ -11,10 +11,9 @@ from app import forms, views
 
 urlpatterns = [
     path('', views.site_liste, name='site_liste'),
-    #une pour supp 
+    path('supprimer_site/<int:site_id>/', views.supprimer_site, name='supprimer_site'),
     #une pour modifier
     path('ajout/', views.ajouter_site, name='ajout'),
-    path('about/', views.about, name='about'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('admin/', admin.site.urls),
 ]

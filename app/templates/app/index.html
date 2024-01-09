@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>{{ title }}</title>
+    <!-- Ajoutez les liens vers Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Ou utilisez des fichiers Bootstrap locaux -->
 </head>
 <body>
     <h1>{{ title }}</h1>
@@ -14,10 +17,16 @@
                 <strong>URL:</strong> <a href="{{ site.url }}">{{ site.url }}</a><br>
                 <strong>Identifiant:</strong> {{ site.identifiant }}<br>
                 <strong>Mot de passe:</strong> {{ site.mot_de_passe }}<br><br>
+                <a class="btn btn-primary" href="/ajout">Supprimer</a>
             </li>
+            
         {% endfor %}
     </ul>
+    
+    <!-- Stylisation du bouton avec Bootstrap -->
+    <a class="btn btn-primary" href="/ajout">Ajouter un site</a>
+
+    <!-- Ajoutez le script Bootstrap JS si nécessaire -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-
-
