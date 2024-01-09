@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Ajouter un Site</title>
+    <!-- Inclure le lien vers Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <h1>Ajouter un Site</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}  <!-- Affichage des champs du formulaire -->
-        <button type="submit">Enregistrer</button>
+        <!-- Utilisation des classes Bootstrap pour le bouton -->
+        <button class="btn btn-primary" type="submit">Enregistrer</button>
     </form>
+    <!-- Inclure Bootstrap JS si nécessaire -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
