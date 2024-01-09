@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <!-- Ajoutez les liens vers Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Ou utilisez des fichiers Bootstrap locaux -->
+
+    <style>
+        body {
+            background-color: #FF8D1C; /* Couleur de fond */
+            color: black; /* Couleur du texte en noir */
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="mx-auto" style="width: 80%;">
+        <!-- Utilisation de mx-auto pour centrer horizontalement le conteneur -->
+        <h1>{{ title }}</h1>
+
+        <ul class="list-unstyled text-left">
+            <!-- Utilisation de list-unstyled pour enlever les styles de liste par défaut -->
+            {% for site in sites %}
+            <li>
+                <strong>Nom:</strong> {{ site.nom }}<br>
+                <strong>URL:</strong> <a href="{{ site.url }}">{{ site.url }}</a><br>
+                <strong>Identifiant:</strong> {{ site.identifiant }}<br>
+                <strong>Mot de passe:</strong> {{ site.mot_de_passe }}<br><br>
+                <a class="btn btn-primary" href="/ajout">Supprimer</a>
+                <a class="btn btn-primary" href="{% url 'modifier_site' site.id %}">Modifier</a>
+
+            </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Stylisation du bouton avec Bootstrap -->
+        <a class="btn btn-primary" href="/ajout">Ajouter un site</a>
+    </div>
+
+    <!-- Ajoutez le script Bootstrap JS si nécessaire -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
