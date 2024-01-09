@@ -13,20 +13,8 @@ urlpatterns = [
     path('', views.site_liste, name='site_liste'),
     #une pour supp 
     #une pour modifier
-    path('contact/', views.contact, name='contact'),
+    path('ajout/', views.ajouter_site, name='ajout'),
     path('about/', views.about, name='about'),
-    path('login/',
-         LoginView.as_view
-         (
-             template_name='app/login.html',
-             authentication_form=forms.BootstrapAuthenticationForm,
-             extra_context=
-             {
-                 'title': 'Log in',
-                 'year' : datetime.now().year,
-             }
-         ),
-         name='login'),
     path('logout/', LogoutView.as_view(next_page='/'), name='logout'),
     path('admin/', admin.site.urls),
 ]
